@@ -1,2 +1,3 @@
 - Hello! I'd like to share this project. This is a Attendance Tracker using QR Code Scanner.
 - I use Google Sheet for database, You can ignore the login and register.
+- You need to create a account service and get the json file in Google Console Developer
