@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             xmlns:local="clr-namespace:Trak_IT"
+             x:Class="Trak_IT.MainPage">
+
+    <Grid>
+        <StackLayout Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Start" Margin="0,10,0,0">
+            <HorizontalStackLayout>
+                <Image Source="trakit.png"
+                       VerticalOptions="StartAndExpand"
+                       Margin="15,25,0,0"
+                       WidthRequest="103"/>
+            </HorizontalStackLayout>
+        </StackLayout>
+
+        <VerticalStackLayout Grid.Row="0" VerticalOptions="Start" HorizontalOptions="End" Margin="0,10,10,0">
+            <ImageButton Source="{Binding ProfileImageFilePath}"/>
+        </VerticalStackLayout>
+        
+
+        <VerticalStackLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" Spacing="1" Padding="0,40,0,0">
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="2" Padding="0,0,0,30">
+                <Label x:Name="studentName" Text="" VerticalOptions="Start" HorizontalOptions="Center" TextColor ="#414141" FontFamily="PoppinsSemibold" FontSize="25"/>
+                <Label Text="Name" FontSize="11.7" FontFamily="PoppinsMedium" TextColor="#7A7A7A" HorizontalOptions="Center"/>
+                <Label x:Name="studentSection" Text="Section" Opacity="0.8" VerticalOptions="Start" HorizontalOptions="Center" TextColor="#414141" FontFamily="PoppinsMedium" FontSize="19.5"/>
+                
+            </VerticalStackLayout>
+            <Frame HeightRequest="250" WidthRequest="250" BackgroundColor="#D9D9D9" CornerRadius="10" HorizontalOptions="Center">
+                <cv:CameraView x:Name="cameraView" WidthRequest="250" HeightRequest="250" 
+                               CamerasLoaded="cameraView_CamerasLoaded" 
+                               BarCodeDetectionEnabled="True" 
+                               BarcodeDetected="cameraView_BarcodeDetected"/>
+            </Frame>
+
+            <VerticalStackLayout HorizontalOptions="Center">
+                <Label x:Name="bsitID" Text="BSIT ID" VerticalOptions="Start" HorizontalOptions="Center" FontFamily="PoppinsMedium" FontSize="19.89"/>
+                <Label Text="BSIT Student No." VerticalOptions="Start" FontSize="11.7" TextColor="#7A7A7A" HorizontalOptions="Center" FontFamily="PoppinsMedium"/>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout VerticalOptions="End">
+                <Frame  HasShadow="True">
+                    <HorizontalStackLayout VerticalOptions="Center" Spacing="80" Padding="20,0,20,0" >
+                        
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Start">
+                            
+                            <HorizontalStackLayout>
+                                <Frame Scale="0.6" HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="50" BackgroundColor="#52E445" Padding="0,0,0,0" Margin="0,0,0,0" />
+                                <Label Text="Time in" FontSize="13.46" FontFamily="PoppinsMedium" TextColor="#787878" HorizontalOptions="Center"/>
+                            </HorizontalStackLayout>
+                            <Label x:Name="clock_In" Text="0:00" FontFamily="PoppinsMedium" Padding="20,0,0,0"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Start">
+
+                            <HorizontalStackLayout>
+                                <Frame Scale="0.6" HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="50" BackgroundColor="#D9AD3C" Padding="0,0,0,0" Margin="0,0,0,0" />
+                                <Label Text="Time out" FontSize="13.46" FontFamily="PoppinsMedium" TextColor="#787878" HorizontalOptions="Center"/>
+                            </HorizontalStackLayout>
+
+                            <Label x:Name="clock_Out" Text="0:00" FontFamily="PoppinsMedium" Padding="20,0,0,0"/>
+
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Button ImageSource="trakerlogo.png" Clicked="Button_Clicked" ContentLayout="7,0" Text="Track" BackgroundColor="#1B185B" FontSize="19.89" FontFamily="PoppinsMedium" VerticalOptions="End"  Padding="10" Margin="0,20,0,0">
+                    <Button.Triggers>
+                        <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                            <Setter Property="BackgroundColor" Value="#03030F" />
+                        </Trigger>
+                    </Button.Triggers>
+                </Button>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>

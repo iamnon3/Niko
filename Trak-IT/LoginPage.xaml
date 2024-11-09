@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trak_IT.LoginPage">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+            <GradientStop Color="#1F1E65" Offset="0.0" />
+            <GradientStop Color="#25246F" Offset="0.125"/>
+            <GradientStop Color="#292874" Offset="0.25" />
+            <GradientStop Color="#37368A" Offset="0.5" />
+            <GradientStop Color="#2A2873" Offset="0.75" />
+            <GradientStop Color="#232066" Offset="0.89" />
+            <GradientStop Color="#1C185A" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid>
+        
+        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center" Spacing="90">
+            <VerticalStackLayout VerticalOptions="Start" Padding="0,100,0,0" HorizontalOptions="Center">
+                <Label Text="Welcome to" TextColor="White" FontFamily="PoppinsBold" FontSize="18.19" Padding="10,0,0,0" />
+                <Image Source="trakerlogow.png" WidthRequest="290"/>
+            </VerticalStackLayout>
+            <Frame CornerRadius="20" WidthRequest="390" HeightRequest="550">
+                <VerticalStackLayout>
+                    <VerticalStackLayout VerticalOptions="Start" Padding="0,20,0,0" Spacing="30">
+                        
+                        <VerticalStackLayout Padding="0,20">
+                            <Label Text="Name:" FontFamily="PoppinsMedium" FontSize="19.89" Padding="20,0,0,0"/>
+                            <Entry x:Name="nameEntry" TextColor="Black" BackgroundColor="White" />
+                        </VerticalStackLayout>
+                        
+                        <VerticalStackLayout>
+                            <Label Text="Password:" FontFamily="PoppinsMedium" FontSize="19.89" Padding="20,0,0,0" />
+                            <Entry x:Name="passwordEntry" TextColor="Black" BackgroundColor="Transparent" />
+                        </VerticalStackLayout>
+                        <Button x:Name="loginButton" Clicked="loginButton_Clicked" Text="Login" FontFamily="PoppinsBold" FontSize="19.89" BackgroundColor="#1B185B" VerticalOptions="End" Margin="0,40" WidthRequest="250" HeightRequest="50" />
+
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+        <VerticalStackLayout x:Name="popups"  VerticalOptions="Start" HorizontalOptions="Center" IsVisible="False">
+            <Frame BackgroundColor="#FBE1E0" WidthRequest="380" HeightRequest="70" CornerRadius="40" BorderColor="#F7C3C1">
+                <Label x:Name="errorLabel" Text="" TextColor="#5E2A28" FontSize="19.89" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </Frame>
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>
